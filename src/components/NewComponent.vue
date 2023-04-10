@@ -1,6 +1,10 @@
 <script>
 import { ref } from "vue";
+import SearchResults from "./SearchResults.vue";
 export default {
+  components: {
+    SearchResults,
+  },
   setup() {
     const query = ref("");
 
@@ -21,10 +25,11 @@ export default {
   <div>
     <h3 class="make-it-green">Here's the new component that I made</h3>
     <h2>Filter LearnVue Articles</h2>
+    <!-- <p>{{ query }}</p> -->
     <input type="text" placeholder="Filter Search" v-model="query" />
+    <br />
     <button @click="reset">Reset</button>
-    <p>{{ query }}</p>
-
+    <SearchResults :query="query"/>
   </div>
 </template>
 
